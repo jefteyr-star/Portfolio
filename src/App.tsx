@@ -100,7 +100,12 @@ const projects = [
     ],
     accent: 'sage',
     preview: 'finance',
-    stackGroups: [],
+    stackGroups: [
+      { category: 'Frontend', technologies: 'React.js · Vite · Tailwind CSS · Recharts' },
+      { category: 'Backend', technologies: 'Node.js · Express.js 5 · Prisma ORM 6 · JavaScript ES Modules · JWT (JSON Web Token) · bcryptjs · Zod' },
+      { category: 'Database', technologies: 'PostgreSQL 18' },
+      { category: 'Development Tools', technologies: 'Visual Studio Code · Git · GitHub · npm' },
+    ],
     link: '',
     repository: 'https://github.com/jefteyr-star',
   },
@@ -181,19 +186,13 @@ function ProjectArtwork({
   }
 
   if (kind === 'finance') {
+    const alt = 'FinAN personal finance application sign-in screen'
     return (
-      <div className="project-art project-art--finance" aria-hidden="true">
-        <svg viewBox="0 0 360 250" fill="none">
-          <path className="art-line art-line--strong" d="M75 91a15 15 0 0 1 15-15h165a15 15 0 0 1 15 15v76H75z" />
-          <path className="art-line" d="M75 104h195v63H90a15 15 0 0 1-15-15z" />
-          <path className="art-line art-line--strong" d="M224 118h46v31h-46a15 15 0 0 1 0-31z" />
-          <circle className="art-accent" cx="239" cy="133" r="4" />
-          <circle className="art-outline" cx="139" cy="82" r="27" />
-          <path className="art-line art-line--accent" d="M139 67v30M147 74c-2-4-13-5-16 0-4 8 15 8 15 16 0 6-10 9-17 4" />
-          <circle className="art-accent art-accent--muted" cx="190" cy="187" r="8" />
-          <circle className="art-accent" cx="218" cy="201" r="5" />
-        </svg>
-        <span className="project-art-label">BUDGET · SPENDING</span>
+      <div className="project-art project-art--screenshot">
+        <button className="project-image-trigger" type="button" onClick={() => onImageClick('/finan-login.png', alt)} aria-label={`View image: ${alt}`}>
+          <img src="/finan-login.png" alt={alt} width="1365" height="768" loading="lazy" decoding="async" />
+        </button>
+        <span className="project-art-label">FINAN · SIGN-IN SCREEN</span>
       </div>
     )
   }
